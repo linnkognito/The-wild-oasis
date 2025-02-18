@@ -13,6 +13,7 @@ import Settings from './pages/Settings';
 import Account from './pages/Account';
 import Login from './pages/Login';
 import PageNotFound from './pages/PageNotFound';
+import { Toaster } from 'react-hot-toast';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -26,6 +27,26 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
+      <Toaster
+        position='top-center'
+        gutter={12}
+        containerStyle={{ margin: '8px' }}
+        toastOptions={{
+          success: {
+            duration: 3000,
+          },
+          error: {
+            duration: 5000,
+          },
+          style: {
+            maxWidth: '500px',
+            padding: '16px 24px',
+            fontSize: '16px',
+            color: 'var(--color-grey-700)',
+            backgroundColor: 'var(--color-grey-0)',
+          },
+        }}
+      />
 
       <GlobalStyles />
       <BrowserRouter>

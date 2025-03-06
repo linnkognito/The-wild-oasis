@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 import { format, isToday } from 'date-fns';
+import { formatCurrency } from '../../utils/helpers';
+import { formatDistanceFromNow } from '../../utils/helpers';
 
 import Tag from '../../ui/Tag';
 import Table from '../../ui/Table';
-
-import { formatCurrency } from '../../utils/helpers';
-import { formatDistanceFromNow } from '../../utils/helpers';
 
 const Cabin = styled.div`
   font-size: 1.6rem;
@@ -13,7 +12,6 @@ const Cabin = styled.div`
   color: var(--color-grey-600);
   font-family: 'Sono';
 `;
-
 const Stacked = styled.div`
   display: flex;
   flex-direction: column;
@@ -28,7 +26,6 @@ const Stacked = styled.div`
     font-size: 1.2rem;
   }
 `;
-
 const Amount = styled.div`
   font-family: 'Sono';
   font-weight: 500;
@@ -44,8 +41,8 @@ function BookingRow({
     numGuests,
     totalPrice,
     status,
-    // guests: { fullName: guestName, email },
-    // cabins: { name: cabinName },
+    guests: { fullName: guestName, email },
+    cabins: { name: cabinName },
   },
 }) {
   const statusToTagName = {
@@ -58,14 +55,11 @@ function BookingRow({
 
   return (
     <Table.Row>
-      <Cabin>cabinName placeholder</Cabin>
-      {/* <Cabin>{cabinName}</Cabin> */}
+      <Cabin>{cabinName}</Cabin>
 
       <Stacked>
-        {/* <span>{guestName}</span> */}
-        <span>Placeholder for guestName</span>
-        <span>Placeholder for email</span>
-        {/* <span>{email}</span> */}
+        <span>{guestName}</span>
+        <span>{email}</span>
       </Stacked>
 
       <Stacked>
